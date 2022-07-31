@@ -1,0 +1,14 @@
+@import "src/constants";
+
+.gradientText {
+  color: darken($secondary, 20%);
+}
+
+.perksList {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+
+  li::marker {
+    color: $primary;
+  }
+}

@@ -20,14 +20,16 @@ body {
   background: $background;
 }
 
-@media(max-width: 668px) {
+@media(max-width: 762px) {
   html {
     font-size: 90%;
   }
 }
 
-@media(max-width: 300px) {
-  html {
-    font-size: 60%;
+h1 {
+  font-size: 3rem;
+
+  @media(max-width: 762px) {
+    font-size: 2rem;
   }
 }

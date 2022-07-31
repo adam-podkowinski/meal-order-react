@@ -3,7 +3,7 @@ import { HiArrowDown } from "react-icons/hi";
 
 const Hero = () => {
   return (
-    <div className={`${classes.hero}`}>
+    <div className={`container ${classes.hero}`}>
       <div className={classes.textBox}>
         <h1 className={classes.fancyText}>
           Delicious food,
@@ -16,17 +16,20 @@ const Hero = () => {
           omnis optio quae.
         </p>
         <div className={classes.buttonContainer}>
-          <a href={"#"} className={"button"}>
+          <a href={"#menu"} className={"button"}>
             Start shopping
           </a>
-          <a href={"#"} className={`button ${classes.learnMoreButton}`}>
+          <a
+            href={"#learnMore"}
+            className={`button ${classes.learnMoreButton}`}
+          >
             Learn more <HiArrowDown />
           </a>
         </div>
       </div>
       <div className={classes.emojiBox}>
-        <div className={classes.waveEmoji}>👋</div>
-        <div className={classes.burgerEmoji}>🍔</div>
+        <span>👋</span>
+        <span>🍔</span>
       </div>
     </div>
   );

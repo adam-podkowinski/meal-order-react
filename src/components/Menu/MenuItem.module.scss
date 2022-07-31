@@ -1,0 +1,67 @@
+@import "src/constants";
+
+.menuItem {
+  padding: 3rem;
+  border-bottom: 1px solid $primaryShade;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .name {
+    font-size: 1.7rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .price {
+    color: darken($primary, 50%);
+    font-weight: 600;
+    margin-top: .5rem;
+    font-size: 1.4rem;
+  }
+
+  .actionBox {
+    display: flex;
+    flex-flow: column;
+    align-items: end;
+  }
+
+  .addButton {
+    background-color: #FF864D;
+    border: none;
+    padding: .6rem 2rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-family: inherit;
+    color: inherit;
+    border-radius: 100vw;
+    cursor: pointer;
+    gap: .5rem;
+    font-weight: 500;
+    transition: background-color .3s;
+
+    &:hover, &:active {
+      background-color: #ff925f;
+    }
+  }
+
+  .amountBox {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    align-items: center;
+
+    input {
+      font-family: inherit;
+      background-color: #e1f8d4;
+      border: 2px solid lighten(#FF864D, 5%);
+      font-size: 1.1rem;
+      border-radius: .3rem;
+    }
+  }
+}

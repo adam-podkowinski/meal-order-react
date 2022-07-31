@@ -1,0 +1,22 @@
+@import "src/constants";
+
+.menu {
+  background: #141919;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    background-color: #e1f8d4;
+    width: 100%;
+    border-radius: 2.5rem;
+    color: $darkText;
+    overflow: hidden;
+
+    ul {
+      list-style: none;
+      padding: 0
+    }
+  }
+}

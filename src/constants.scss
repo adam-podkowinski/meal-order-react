@@ -51,3 +51,16 @@ $secondary: #C7F8FF;
     font-size: 1.2rem;
   }
 }
+
+.container {
+  padding-block: 8rem;
+  padding-inline: 10rem;
+
+  @media(max-width: 1543px) {
+    padding: 5rem;
+  }
+
+  @media(max-width: 762px) {
+    padding: 3rem;
+  }
+}
