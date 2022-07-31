@@ -1,0 +1,82 @@
+@import "src/constants.scss";
+
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding-block: 10rem;
+  padding-inline: 10rem;
+  flex-flow: column;
+  gap: 5rem;
+  background-color: $primaryShade;
+
+  @media(max-width: 1543px) {
+    grid-template-columns: 1fr;
+    padding-block: 5rem;
+    padding-inline: 5rem;
+    text-align: center;
+  }
+
+  @media(max-width: 762px) {
+    padding-block: 3rem;
+  }
+
+  .textBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .fancyText {
+      background: linear-gradient(to right, $primary, lighten($primary, 30%));
+      font-size: 5rem;
+      line-height: 1;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @media(max-width:762px) {
+        font-size: 3rem;
+      }
+    }
+
+    .description {
+      line-height: 1.8;
+      font-size: 1.3rem;
+    }
+
+    .buttonContainer {
+      display: flex;
+      gap: 2.4rem;
+      margin-top: 3rem;
+
+      @media(max-width: 1543px) {
+        justify-content: center;
+      }
+
+      @media(max-width: 762px) {
+        flex-flow: column;
+        align-items: center;
+      }
+
+      .learnMoreButton {
+        background-color: #fff;
+        box-shadow: inset 0 0 0 .5rem $secondary;
+
+        &:hover, &:active {
+          background-color: $secondary;
+        }
+      }
+    }
+  }
+
+  .emojiBox {
+    display: flex;
+    font-size: 14rem;
+    @media (max-width: 1543px) {
+      justify-content: center;
+      font-size: 8rem;
+    }
+
+    @media(max-width:762px) {
+      font-size: 18vw;
+    }
+  }
+}

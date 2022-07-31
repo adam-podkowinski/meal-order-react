@@ -1,8 +1,8 @@
 @import "src/constants";
 
 .header {
-  background: $background;
-  padding: 1rem 5rem;
+  background: $primaryShade;
+  padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,4 +10,8 @@
   top: 0;
   font-size: 2rem;
   font-weight: 700;
+
+  @media(max-width: 762px) {
+    font-size: 1.5rem;
+  }
 }

@@ -2,10 +2,11 @@ $background: #2C272E;
 
 $darkText: #333;
 $lightText: #eee;
-$primary: #753188;
-$primaryTint: #834694;
-$primaryLighter: #9e6fac;
-$secondary: #9AE66E;
+$primary: #9AE66E;
+$primaryShade: #0f170b;
+$primaryTint: #aeeb8b;
+$primaryLighter: #cdf3b7;
+$secondary: #C7F8FF;
 
 .link {
   color: $lightText;
@@ -20,8 +21,33 @@ $secondary: #9AE66E;
   transition: background-size .3s, background-position 0s .3s, color .3s;
 
   &:hover, &:active {
-    color: #9e6fac;
+    color: $primaryLighter;
     background-position: bottom right;
     background-size: 100% 2px;
+  }
+}
+
+.button {
+  background: $primary;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 20rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: background-color .3s;
+  color: #0f170b;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+
+  &:hover, &:active {
+    background: $primaryTint;
+  }
+
+  @media(max-width: 762px) {
+    font-size: 1.2rem;
   }
 }
