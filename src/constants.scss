@@ -1,3 +1,27 @@
-$background: #333;
+$background: #2C272E;
+
 $darkText: #333;
 $lightText: #eee;
+$primary: #753188;
+$primaryTint: #834694;
+$primaryLighter: #9e6fac;
+$secondary: #9AE66E;
+
+.link {
+  color: $lightText;
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  line-height: 1.1;
+  background-image: linear-gradient($primaryLighter, $primaryLighter);
+  background-position: bottom left;
+  background-size: 0 2px;
+  background-repeat: no-repeat;
+  transition: background-size .3s, background-position 0s .3s, color .3s;
+
+  &:hover, &:active {
+    color: #9e6fac;
+    background-position: bottom right;
+    background-size: 100% 2px;
+  }
+}

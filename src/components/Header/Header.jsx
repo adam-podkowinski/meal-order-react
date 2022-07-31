@@ -1,11 +1,18 @@
 import classes from "./Header.module.scss";
+import { HiShoppingCart } from "react-icons/hi";
+import Button from "../common/Button/Button";
 
 const Header = () => {
   return (
     <>
       <nav className={classes.header}>
-        <h1>Meal order</h1>
-        <p>siema</p>
+        <a href={"#"} className={"link"}>
+          Meal order
+        </a>
+        <Button>
+          <HiShoppingCart />
+          Cart
+        </Button>
       </nav>
     </>
   );
