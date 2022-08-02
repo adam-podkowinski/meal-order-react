@@ -1,0 +1,106 @@
+@import "src/styles/vars";
+
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .85);
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  flex-flow: column;
+  opacity: 0;
+  display: flex;
+  visibility: hidden;
+  transition: opacity .3s, visibility .3s;
+  pointer-events: none;
+}
+
+.backdropOpen {
+  opacity: 1;
+  display: flex;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.cart {
+  width: 50%;
+  height: 70%;
+  border-radius: 2rem;
+  background-color: lighten($primaryLighter, 8);
+  color: $darkText;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+
+  // to make sure no ugly border on the bottom
+  padding: 0 1px 1px 1px;
+  background-clip: content-box;
+
+  .padding {
+    padding: 2rem 2rem 0 2rem;
+    overflow-y: scroll;
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding: 2rem;
+    background-color: $primaryShade;
+    align-items: center;
+    color: $lightText;
+
+    .totalPrice {
+      margin-left: auto;
+      color: $primary;
+    }
+
+    .order {
+      padding: .5rem 2rem;
+      font-size: 1.7rem;
+      background-color: darken($secondary, 30);
+
+      &:hover {
+        background-color: darken($secondary, 10);
+      }
+    }
+  }
+
+  header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  hr {
+    border: none;
+    height: .25rem;
+    background-color: $primaryTint;
+    border-radius: 20rem;
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .closeButton {
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+
+  @media(orientation: portrait) {
+    width: 80%;
+    height: 80%;
+  }
+}
