@@ -1,4 +1,4 @@
-@import "src/constants.scss";
+@import "../../styles/vars";
 
 .hero {
   display: grid;
@@ -6,6 +6,10 @@
   flex-flow: column;
   gap: 5rem;
   background-color: $primaryShade;
+
+  @media(max-width:564px) {
+    gap: 2rem;
+  }
 
   @media(max-width: 1543px) {
     grid-template-columns: 1fr;

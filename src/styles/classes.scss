@@ -1,12 +1,4 @@
-$background: #2C272E;
-
-$darkText: #333;
-$lightText: #eee;
-$primary: #9AE66E;
-$primaryShade: #0f170b;
-$primaryTint: #aeeb8b;
-$primaryLighter: #cdf3b7;
-$secondary: #C7F8FF;
+@import "vars";
 
 .link {
   color: $lightText;
@@ -48,7 +40,8 @@ $secondary: #C7F8FF;
   }
 
   @media(max-width: 762px) {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    padding: .8rem 2.5rem;
   }
 }
 

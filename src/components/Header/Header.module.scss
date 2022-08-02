@@ -1,4 +1,4 @@
-@import "src/constants";
+@import "../../styles/vars";
 
 .header {
   background: $primaryShade;
@@ -13,5 +13,6 @@
 
   @media(max-width: 762px) {
     font-size: 1.5rem;
+    padding: .8rem 2.3rem;
   }
 }

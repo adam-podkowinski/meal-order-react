@@ -1,4 +1,4 @@
-import "./index.scss";
+import "./styles/index.scss";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import LearnMore from "./components/LearnMore/LearnMore";
