@@ -42,7 +42,7 @@ export const CartContextProvider = ({ children }) => {
         return newItems;
       }
 
-      return [{ item, amount }, ...prev];
+      return prev.concat({ item, amount });
     });
   };
 

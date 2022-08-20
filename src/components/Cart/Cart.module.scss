@@ -37,12 +37,22 @@
   padding: 0 1px 1px 1px;
   background-clip: content-box;
 
-  .padding {
+  .cart-content {
     padding: 2rem 2rem 0 2rem;
     overflow-y: scroll;
   }
 
-  .total {
+  .order-button {
+    padding: .5rem 2rem;
+    font-size: 1.7rem;
+    background-color: darken($secondary, 30);
+
+    &:hover {
+      background-color: darken($secondary, 45);
+    }
+  }
+
+  .cart-total {
     display: flex;
     justify-content: space-between;
     margin-top: auto;
@@ -56,26 +66,42 @@
       color: $primary;
     }
 
-    .order {
-      padding: .5rem 2rem;
-      font-size: 1.7rem;
-      background-color: darken($secondary, 30);
+    .order-button--disabled {
+      background-color: grey !important;
+      cursor: not-allowed;
+    }
 
-      &:hover {
-        background-color: darken($secondary, 10);
+
+    .page-actions {
+      display: flex;
+      gap: 1rem;
+
+      .page-button--disabled {
+        background-color: grey;
+        cursor: not-allowed;
+      }
+
+      .page-button {
+        padding: .7rem;
+        font-size: 2rem;
       }
     }
   }
 
-  header {
+  .cart-header {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    padding: 2rem 2rem 0 2rem;
 
     h1 {
       font-size: 2.5rem;
     }
+  }
+
+  header > hr {
+    margin-bottom: 0;
   }
 
   hr {

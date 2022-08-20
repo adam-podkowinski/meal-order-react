@@ -27,6 +27,12 @@ body {
   }
 }
 
+@media(max-width: 290px) {
+  html {
+    font-size: 80%;
+  }
+}
+
 h1 {
   font-size: 3rem;
 
