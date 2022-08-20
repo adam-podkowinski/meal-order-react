@@ -12,7 +12,7 @@ const CartContext = React.createContext({
 });
 
 export const CartContextProvider = ({ children }) => {
-  const [cartOpen, setCartOpen] = useState(true);
+  const [cartOpen, setCartOpen] = useState(false);
 
   const [cartItems, setCartItems] = useState(() => {
     const saved = localStorage.getItem(cartStorageId);
