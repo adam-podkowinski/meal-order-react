@@ -15,7 +15,6 @@ const Menu = () => {
       setLoading(true);
       setError(null);
 
-      await new Promise((r) => setTimeout(r, 1500));
       const data = await fetch(`${api}/meals.json`);
 
       if (!data.ok) {
