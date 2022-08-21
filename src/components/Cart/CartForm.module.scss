@@ -1,0 +1,57 @@
+@import "src/styles/vars";
+
+.order-button {
+  padding: .5rem 2rem;
+  font-size: 1.7rem;
+  background-color: darken($secondary, 30);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+
+  &:hover {
+    background-color: darken($secondary, 45);
+  }
+}
+
+.order-button--disabled {
+  background-color: grey !important;
+  cursor: not-allowed;
+}
+
+.input-box {
+  .info-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: .3rem;
+
+    p {
+      color: lighten(red, 12);
+      font-weight: 500;
+    }
+
+    label {
+      font-size: 1.2rem;
+      font-weight: 500;
+      display: block;
+    }
+  }
+
+  input, select {
+    border-radius: .8rem;
+    border: 2px solid $background;
+    width: 50%;
+
+    @media(max-width: 1200px) {
+      width: 100%
+    }
+
+    display: block;
+    background-color: $primaryLighter;
+    flex-grow: 1;
+    padding: .5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-bottom: 1rem;
+  }
+}

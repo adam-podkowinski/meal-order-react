@@ -42,16 +42,6 @@
     overflow-y: scroll;
   }
 
-  .order-button {
-    padding: .5rem 2rem;
-    font-size: 1.7rem;
-    background-color: darken($secondary, 30);
-
-    &:hover {
-      background-color: darken($secondary, 45);
-    }
-  }
-
   .cart-total {
     display: flex;
     justify-content: space-between;
@@ -65,12 +55,6 @@
       margin-left: auto;
       color: $primary;
     }
-
-    .order-button--disabled {
-      background-color: grey !important;
-      cursor: not-allowed;
-    }
-
 
     .page-actions {
       display: flex;

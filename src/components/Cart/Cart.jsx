@@ -1,10 +1,11 @@
 import classes from "./Cart.module.scss";
 import ReactDOM from "react-dom";
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import CartContext from "../../context/cart-context";
 import { AiOutlineClose } from "react-icons/ai";
-import CartItem from "./CartItem";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import CartItems from "./CartItems";
+import CartForm from "./CartForm";
 
 const Cart = () => {
   const ctx = useContext(CartContext);
@@ -16,36 +17,21 @@ const Cart = () => {
     }, 0)
     .toFixed(2);
 
-  const cartProducts = (
-    <ul>
-      {ctx.cartItems.map(({ item, amount }) => (
-        <CartItem
-          name={item.name}
-          amount={amount}
-          price={item.price}
-          key={item.name}
-        />
-      ))}
-    </ul>
-  );
-
   const isEmpty = ctx.cartItems.length <= 0;
 
-  const orderButton = (
-    <button
-      onClick={() => console.log(`Ordering: ${ctx.cartItems}`)}
-      disabled={isEmpty}
-      className={`button ${classes.orderButton} ${
-        isEmpty && classes.orderButtonDisabled
-      }`}
-    >
-      Order
-    </button>
+  const cartContent = (
+    <>
+      <CartItems visible={!page} cartItems={ctx.cartItems} />
+      <CartForm
+        visible={page}
+        total={total}
+        cartItems={ctx.cartItems}
+        isEmpty={isEmpty}
+      />
+    </>
   );
 
-  const cartForm = <div>{orderButton}</div>;
-
-  const cartItems = page ? cartForm : cartProducts;
+  const cartEmpty = <h2>No items in a cart.</h2>;
 
   const backdropClasses = `${classes.backdrop} ${
     ctx.cartOpen && classes.backdropOpen
@@ -76,7 +62,7 @@ const Cart = () => {
           <hr />
         </header>
         <div className={classes.cartContent}>
-          {isEmpty ? <h2>No items in a cart.</h2> : cartItems}
+          {isEmpty ? cartEmpty : cartContent}
         </div>
         <div className={classes.cartTotal}>
           <h2>
