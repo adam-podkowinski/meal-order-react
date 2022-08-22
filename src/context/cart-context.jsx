@@ -80,6 +80,8 @@ export const CartContextProvider = ({ children }) => {
     });
   };
 
+  const clearCart = () => setCartItems([]);
+
   return (
     <CartContext.Provider
       className="Provider"
@@ -93,9 +95,7 @@ export const CartContextProvider = ({ children }) => {
         removeItem: removeItem,
         openCart: openCart,
         closeCart: closeCart,
-        clearCart: () => {
-          setCartItems([]);
-        },
+        clearCart: clearCart,
         setOrdering: setOrdering,
         setOrderState: setOrderState,
         setPage: setPage,

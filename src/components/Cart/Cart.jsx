@@ -1,6 +1,6 @@
 import classes from "./Cart.module.scss";
 import ReactDOM from "react-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import CartContext from "../../context/cart-context";
 import { AiOutlineClose } from "react-icons/ai";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
@@ -62,6 +62,7 @@ const Cart = () => {
             {isEmpty ? cartEmpty : cartContent}
           </div>
         )}
+        {/*TODO: on mobile total price sometimes jumps to another line*/}
         <div className={classes.cartTotal}>
           <h2>
             Total: <span className={classes.totalPrice}>${total}</span>
