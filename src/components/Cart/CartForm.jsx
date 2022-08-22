@@ -1,22 +1,31 @@
 import classes from "./CartForm.module.scss";
 import { useForm } from "react-hook-form";
+import { api } from "/src/constants";
 
 const emailPatternRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
-const emailPatternMessage = "Provide a valid e-mail address.";
+const emailPatternMessage = "Invalid e-mail";
 const emailPattern = {
   value: emailPatternRegex,
   message: emailPatternMessage,
 };
 
-const CartForm = ({ isEmpty, visible }) => {
+const CartForm = ({ isEmpty, visible, cartItems }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ mode: "onTouched" });
 
-  const onSubmit = (d) => {
-    console.log(`Order: ${d}`);
+  const onSubmit = async (d) => {
+    reset();
+    await fetch(`${api}/orders.json`, {
+      method: "POST",
+      body: JSON.stringify({
+        recipient: d,
+        order: cartItems,
+      }),
+    });
   };
 
   const { firstName, lastName, email, country, address, payment } = errors;

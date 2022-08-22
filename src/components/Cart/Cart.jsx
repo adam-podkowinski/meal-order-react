@@ -7,6 +7,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import CartItems from "./CartItems";
 import CartForm from "./CartForm";
 
+// TODO: show an indication that order has been completed
 const Cart = () => {
   const ctx = useContext(CartContext);
   const [page, setPage] = useState(0);
@@ -22,12 +23,7 @@ const Cart = () => {
   const cartContent = (
     <>
       <CartItems visible={!page} cartItems={ctx.cartItems} />
-      <CartForm
-        visible={page}
-        total={total}
-        cartItems={ctx.cartItems}
-        isEmpty={isEmpty}
-      />
+      <CartForm visible={page} cartItems={ctx.cartItems} isEmpty={isEmpty} />
     </>
   );
 

@@ -1,10 +1,9 @@
 import classes from "./Menu.module.scss";
 import MenuItem from "./MenuItem";
 import { useCallback, useEffect, useState } from "react";
+import { api } from "/src/constants";
 
-const api =
-  "https://meal-order-a9a45-default-rtdb.europe-west1.firebasedatabase.app";
-
+// TODO: make meals an object with unique IDs fetched from database
 const Menu = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
