@@ -7,3 +7,5 @@ $primaryShade: #0f170b;
 $primaryTint: #aeeb8b;
 $primaryLighter: #cdf3b7;
 $secondary: #C7F8FF;
+$errorColor: lighten(red, 12);
+$lightErrorColor: lighten($errorColor, 25);

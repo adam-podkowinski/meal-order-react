@@ -1,5 +1,7 @@
 @import "src/styles/vars";
 
+$transitionTime: .25s;
+
 .order-button {
   padding: .5rem 2rem;
   font-size: 1.7rem;
@@ -17,6 +19,21 @@
   cursor: not-allowed;
 }
 
+.invalid-input {
+  input, select {
+    background-color: $lightErrorColor !important;
+    border-color: $errorColor !important;
+
+    &:focus {
+      box-shadow: 0 0 0 4px $lightErrorColor !important;
+    }
+  }
+
+  label {
+    color: $errorColor !important;
+  }
+}
+
 .input-box {
   .info-box {
     display: flex;
@@ -26,7 +43,7 @@
     margin-bottom: .3rem;
 
     p {
-      color: lighten(red, 12);
+      color: $errorColor;
       font-weight: 500;
     }
 
@@ -34,6 +51,7 @@
       font-size: 1.2rem;
       font-weight: 500;
       display: block;
+      transition: color $transitionTime;
     }
   }
 
@@ -41,6 +59,12 @@
     border-radius: .8rem;
     border: 2px solid $background;
     width: 50%;
+    transition: background-color $transitionTime, border $transitionTime;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px $primaryTint;
+    }
 
     @media(max-width: 1200px) {
       width: 100%
