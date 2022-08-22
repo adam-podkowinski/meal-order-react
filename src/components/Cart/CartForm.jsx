@@ -9,6 +9,7 @@ const emailPattern = {
   message: emailPatternMessage,
 };
 
+// TODO: extract each input box to a separate component
 const CartForm = ({ isEmpty, visible, cartItems }) => {
   const {
     register,
