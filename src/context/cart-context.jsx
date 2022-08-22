@@ -5,14 +5,24 @@ const cartStorageId = "cart";
 const CartContext = React.createContext({
   cartOpen: false,
   cartItems: [],
+  ordering: false,
+  orderState: null,
+  page: 0,
   addItem: (item, amount) => {},
   removeItem: (name) => {},
   openCart: () => {},
   closeCart: () => {},
+  clearCart: () => {},
+  setOrdering: (val) => {},
+  setOrderState: (val) => {},
+  setPage: (num) => {},
 });
 
 export const CartContextProvider = ({ children }) => {
   const [cartOpen, setCartOpen] = useState(false);
+  const [ordering, setOrdering] = useState(false);
+  const [orderState, setOrderState] = useState(null);
+  const [page, setPage] = useState(0);
 
   const [cartItems, setCartItems] = useState(() => {
     const saved = localStorage.getItem(cartStorageId);
@@ -28,6 +38,7 @@ export const CartContextProvider = ({ children }) => {
 
   const closeCart = () => {
     setCartOpen(false);
+    setOrderState(null);
   };
 
   const addItem = (item, amount) => {
@@ -44,6 +55,7 @@ export const CartContextProvider = ({ children }) => {
 
       return prev.concat({ item, amount });
     });
+    setPage(0);
   };
 
   useEffect(() => {
@@ -74,10 +86,19 @@ export const CartContextProvider = ({ children }) => {
       value={{
         cartItems: cartItems,
         cartOpen: cartOpen,
+        ordering: ordering,
+        page: page,
+        orderState: orderState,
         addItem: addItem,
         removeItem: removeItem,
         openCart: openCart,
         closeCart: closeCart,
+        clearCart: () => {
+          setCartItems([]);
+        },
+        setOrdering: setOrdering,
+        setOrderState: setOrderState,
+        setPage: setPage,
       }}
     >
       {children}

@@ -1,16 +1,15 @@
 import classes from "./Cart.module.scss";
 import ReactDOM from "react-dom";
-import { useContext, useMemo, useState } from "react";
+import { useContext, useState } from "react";
 import CartContext from "../../context/cart-context";
 import { AiOutlineClose } from "react-icons/ai";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import CartItems from "./CartItems";
 import CartForm from "./CartForm";
+import OrderStatus from "./OrderStatus";
 
-// TODO: show an indication that order has been completed
 const Cart = () => {
   const ctx = useContext(CartContext);
-  const [page, setPage] = useState(0);
 
   const total = ctx.cartItems
     .reduce((prev, current) => {
@@ -22,8 +21,12 @@ const Cart = () => {
 
   const cartContent = (
     <>
-      <CartItems visible={!page} cartItems={ctx.cartItems} />
-      <CartForm visible={page} cartItems={ctx.cartItems} isEmpty={isEmpty} />
+      <CartItems visible={!ctx.page} cartItems={ctx.cartItems} />
+      <CartForm
+        visible={ctx.page}
+        cartItems={ctx.cartItems}
+        isEmpty={isEmpty}
+      />
     </>
   );
 
@@ -34,8 +37,8 @@ const Cart = () => {
   }`;
 
   const isButtonActive = (num) => {
-    if (isEmpty) return false;
-    return page !== num;
+    if (isEmpty || ctx.ordering || ctx.orderState !== null) return false;
+    return ctx.page !== num;
   };
 
   const cartOnClick = (event) => event.stopPropagation();
@@ -46,20 +49,19 @@ const Cart = () => {
         <header>
           <div className={classes.cartHeader}>
             <h1>Cart</h1>
-            <button
-              onClick={() => {
-                ctx.closeCart();
-              }}
-              className={classes.closeButton}
-            >
+            <button onClick={ctx.closeCart} className={classes.closeButton}>
               <AiOutlineClose />
             </button>
           </div>
           <hr />
         </header>
-        <div className={classes.cartContent}>
-          {isEmpty ? cartEmpty : cartContent}
-        </div>
+        {ctx.ordering || ctx.orderState !== null ? (
+          <OrderStatus />
+        ) : (
+          <div className={classes.cartContent}>
+            {isEmpty ? cartEmpty : cartContent}
+          </div>
+        )}
         <div className={classes.cartTotal}>
           <h2>
             Total: <span className={classes.totalPrice}>${total}</span>
@@ -70,7 +72,7 @@ const Cart = () => {
               className={`button ${classes.pageButton} ${
                 !isButtonActive(0) && classes.pageButtonDisabled
               }`}
-              onClick={() => setPage(0)}
+              onClick={() => ctx.setPage(0)}
             >
               <FiChevronLeft />
             </button>
@@ -79,7 +81,7 @@ const Cart = () => {
               className={`button ${classes.pageButton}
                 ${!isButtonActive(1) && classes.pageButtonDisabled}
             `}
-              onClick={() => setPage(1)}
+              onClick={() => ctx.setPage(1)}
             >
               <FiChevronRight />
             </button>
